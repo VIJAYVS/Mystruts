@@ -45,9 +45,10 @@ public class Mylogin extends ActionSupport {
 		}
 		catch(Exception e)
 		{
+			return "failure";
 			System.out.println(e);
 		}
-		return "failure";
+		return "success";
 	}
 	public void validate()
 	   {
