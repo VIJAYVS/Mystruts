@@ -26,8 +26,12 @@ public class Mylogin extends ActionSupport {
 	{
 		try
 		{
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Employee","root","root");
+			static final String classname="com.mysql.jdbc.Driver";
+			static final String url="jdbc:mysql://localhost:3306/Employee";
+			static final String username="root";
+			static final String password="root";
+		Class.forName("classname");
+		Connection con=DriverManager.getConnection("url","username","password");
 		Statement s=con.createStatement();
 		ResultSet rs=s.executeQuery("select * from empdetails where usern='"+username+"' and passw='"+password+"'");
 		if(rs.next())
