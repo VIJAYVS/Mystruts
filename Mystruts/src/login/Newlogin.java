@@ -35,8 +35,12 @@ public String execute()
 { 
 	try
 	{
-	Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Employee","root","root");
+			static final String classname="com.mysql.jdbc.Driver";
+			static final String url="jdbc:mysql://localhost:3306/Employee";
+			static final String username="root";
+			static final String password="root";
+	Class.forName(classname);
+	Connection con=DriverManager.getConnection(url,username,password);
 	java.sql.PreparedStatement ps=con.prepareStatement("insert into empdetails(usern,passw) values(?,?)");
 	ps.setString(1,"newuser");
 	ps.setString(2,"anewpass");
